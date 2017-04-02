@@ -31,12 +31,16 @@ export const styles = {
     fontSize: 20
   },
   inputDescriptionStyle: {
-    flex: 1,
+    height: 60,
     paddingLeft: 20,
     paddingRight: 20,
-    marginBottom: 60,
     fontFamily: 'Lato-Regular',
     fontSize: 16,
     textAlignVertical: 'top'
+  },
+  button: {
+      marginLeft: 20,
+      marginRight: 20,
+      height: 40,
   }
-}
+};

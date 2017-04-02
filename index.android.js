@@ -30,8 +30,6 @@ const routes = [
 ]
 
 class AsprovNotes extends Component {
-  componentDidMount() {
-  }
 
   render() {
     return (

@@ -114,9 +114,9 @@ class NewNote extends Component {
                     <View style={styles.button}>
                         <Button onPress={this._loadImage} title="Choose image"/>
                     </View>
-                    {this.state.imageSource &&
-                    <Image style={{width: 100, height: 100}} source={this.state.imageSource}/>
-                    }
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.image} source={this.state.imageSource}/>
+                    </View>
                 </View>
 
                 <View style={styles.inputScreenBtnContainer}>

@@ -62,8 +62,8 @@ class AllNotes extends Component {
     this.props.navigator.push({component: NewNote, type: 'addingNote'})
   }
 
-  goToNote(noteId, title, description) {
-    this.props.navigator.push({ component: SingleNote, type: 'editingNote', passProps: { noteId, title, description } })
+  goToNote(noteId, title, description, imageSource) {
+    this.props.navigator.push({ component: SingleNote, type: 'editingNote', passProps: { noteId, title, description, imageSource } })
   }
 
   longPressNote(noteId) {
@@ -96,10 +96,12 @@ class AllNotes extends Component {
         <ListView
           dataSource={dataSource}
           renderRow={(note, sectionID, rowID) => {
+            console.log("Note", note);
             return (
               <NotesViewCard
                 title={note.title}
                 description={note.description}
+                imageSource={note.imageSource}
                 id={note.id}
                 keys={rowID}
                 onPressBtn={this.goToNote.bind(this)}

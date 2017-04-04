@@ -20,8 +20,6 @@ export default (state = initialState, action) => {
       return updatedState
 
     case DELETE_NOTE:
-      console.log('get request')
-      console.log(action.payload)
       const deletedNewArray = _.remove(state, (data) => {
         return data.id != action.payload
       })

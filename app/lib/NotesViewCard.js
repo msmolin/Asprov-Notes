@@ -39,7 +39,6 @@ export default class NotesViewCard extends Component {
                                 ? description.slice(0, 150) + '...'
                                 : description}
                         </Text>
-                        <Image style={{height: 100, width: 100}} source={imageSource}/>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -51,7 +50,7 @@ export default class NotesViewCard extends Component {
     }
 
     handleGoto() {
-        this.props.onPressBtn(this.props.id, this.props.title, this.props.description)
+        this.props.onPressBtn(this.props.id, this.props.title, this.props.description, this.props.imageSource)
     }
 }
 
@@ -70,4 +69,4 @@ const styles = StyleSheet.create({
     },
     cardDescriptionContainer: {},
     cardDescription: {}
-})
+});

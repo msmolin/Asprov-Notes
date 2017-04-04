@@ -38,6 +38,11 @@ export const styles = {
         fontSize: 16,
         textAlignVertical: 'top'
     },
+    inputScreenBtnContainer: {
+        margin: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
     button: {
         marginLeft: 20,
         marginRight: 20,

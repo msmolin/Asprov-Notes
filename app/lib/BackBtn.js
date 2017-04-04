@@ -32,10 +32,6 @@ export default class BackBtn extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    padding: 5,
-    bottom: 15,
-    left: 15,
     backgroundColor: getColor('paperPink'),
     borderRadius: 50
   }

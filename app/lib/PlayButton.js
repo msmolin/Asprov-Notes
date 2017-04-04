@@ -1,7 +1,4 @@
-//
-// Add New Note Button
-//
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
     View,
     Text,
@@ -9,16 +6,17 @@ import {
     TouchableOpacity
 } from 'react-native'
 
-import {Typo} from './Typography'
-import {getColor} from './helpers'
+import { Typo } from './Typography'
+import { getColor } from './helpers'
 import Icon from './Icon'
 
-export default class TickBtn extends Component {
+export default class AddImageButton extends Component {
     render() {
         return (
+
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.handlePress.bind(this)}>
-                    <Icon name="done" size={36} color={getColor('#ffffff')}/>
+                    <Icon name="play-arrow" size={36} color={getColor('#ffffff')} />
                 </TouchableOpacity>
             </View>
         )
@@ -31,7 +29,7 @@ export default class TickBtn extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: getColor('paperTeal'),
+        backgroundColor: getColor('black'),
         borderRadius: 50
     }
 })

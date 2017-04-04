@@ -13,6 +13,8 @@ import {connect} from 'react-redux'
 import Toolbar from '../lib/Toolbar'
 import TickBtn from '../lib/TickBtn'
 import BackBtn from '../lib/BackBtn'
+import PlayButton from '../lib/PlayButton'
+import AddImageButton from '../lib/AddImageButton'
 import {styles} from './styles'
 import {getColor} from '../lib/helpers'
 import {Typo} from '../lib/Typography'
@@ -111,9 +113,6 @@ class NewNote extends Component {
                         onChangeText={(text) => this.setState({desc: text})}
                         value={this.state.desc}
                     />
-                    <View style={styles.button}>
-                        <Button onPress={this._loadImage} title="Choose image"/>
-                    </View>
                     <View style={styles.imageContainer}>
                         <Image style={styles.image} source={this.state.imageSource}/>
                     </View>
@@ -121,6 +120,8 @@ class NewNote extends Component {
 
                 <View style={styles.inputScreenBtnContainer}>
                     <TickBtn onBtnPress={this.addNote.bind(this)}/>
+                    <AddImageButton onBtnPress={this._loadImage.bind(this)}/>
+                    <PlayButton onBtnPress={() => {}}/>
                     <BackBtn onBtnPress={this.goBack.bind(this)}/>
                 </View>
 

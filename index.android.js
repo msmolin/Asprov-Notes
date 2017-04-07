@@ -9,7 +9,7 @@ import {
   BackAndroid,
   AppRegistry
 } from 'react-native'
-
+import thunk from 'redux-thunk'
 import AllNotes from './app/components/view_allNotes'
 
 import ApplicationStore from './app/reducers'
@@ -19,7 +19,7 @@ import createEngine from 'redux-storage-engine-reactnativeasyncstorage'
 const engine = createEngine('notes-app-store')
 
 const middleware = storage.createMiddleware(engine)
-const createStoreWithMiddleware = applyMiddleware(middleware)(createStore)
+const createStoreWithMiddleware = applyMiddleware(thunk, middleware)(createStore)
 const store = createStoreWithMiddleware(reducer)
 
 const load = storage.createLoader(engine)

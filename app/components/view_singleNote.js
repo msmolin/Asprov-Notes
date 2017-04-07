@@ -12,10 +12,12 @@ import {connect} from 'react-redux'
 import Toolbar from '../lib/Toolbar'
 import TickBtn from '../lib/TickBtn'
 import BackBtn from '../lib/BackBtn'
+import Player from '../lib/CustomPlayer'
 import {styles} from './styles'
 import {getColor} from '../lib/helpers'
 import {Typo} from '../lib/Typography'
 import {updateNote} from '../actions'
+import * as api from '../lib/api'
 
 class SingleNote extends Component {
     constructor(props) {
@@ -50,7 +52,6 @@ class SingleNote extends Component {
     }
 
     render() {
-        console.log("Img src", this.props.imageSource);
         return (
             <View style={ styles.addNotesContainer }>
                 <StatusBar
@@ -90,6 +91,7 @@ class SingleNote extends Component {
 
                 <View style={styles.inputScreenBtnContainer}>
                     <TickBtn onBtnPress={this.updateNote.bind(this)}/>
+                    <Player url={api.getSoundUrl(this.state.desc)}/>
                     <BackBtn onBtnPress={this.goBack.bind(this)}/>
                 </View>
 

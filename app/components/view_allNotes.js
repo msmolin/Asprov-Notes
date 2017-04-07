@@ -15,7 +15,7 @@ import SingleNote from './view_singleNote'
 import Toolbar from '../lib/Toolbar'
 import NotesViewCard from '../lib/NotesViewCard'
 import AddNoteButton from '../lib/AddNoteButton'
-import { deleteNote } from '../actions'
+import { deleteNote, getSound } from '../actions'
 import { styles } from './styles'
 import { getColor } from '../lib/helpers'
 import { Typo } from '../lib/Typography'
@@ -96,7 +96,6 @@ class AllNotes extends Component {
         <ListView
           dataSource={dataSource}
           renderRow={(note, sectionID, rowID) => {
-            console.log("Note", note);
             return (
               <NotesViewCard
                 title={note.title}
@@ -119,4 +118,4 @@ function mapStateToProps(state) {
   return { notes: state.allNotes }
 }
 
-export default connect(mapStateToProps, { deleteNote })(AllNotes)
+export default connect(mapStateToProps, { deleteNote, getSound })(AllNotes)

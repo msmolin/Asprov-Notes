@@ -13,12 +13,12 @@ import {connect} from 'react-redux'
 import Toolbar from '../lib/Toolbar'
 import TickBtn from '../lib/TickBtn'
 import BackBtn from '../lib/BackBtn'
-import PlayButton from '../lib/PlayButton'
+import PlayButton from '../lib/CustomPlayer'
 import AddImageButton from '../lib/AddImageButton'
 import {styles} from './styles'
 import {getColor} from '../lib/helpers'
 import {Typo} from '../lib/Typography'
-import {addNote} from '../actions'
+import {addNote, getSound} from '../actions'
 let ImagePicker = require('react-native-image-picker');
 
 
@@ -119,21 +119,20 @@ class NewNote extends Component {
                 </View>
 
                 <View style={styles.inputScreenBtnContainer}>
-                    <TickBtn onBtnPress={this.addNote.bind(this)}/>
-                    <AddImageButton onBtnPress={this._loadImage.bind(this)}/>
-                    <PlayButton onBtnPress={() => {}}/>
-                    <BackBtn onBtnPress={this.goBack.bind(this)}/>
+                    <TickBtn onBtnPress={this.addNote}/>
+                    <AddImageButton onBtnPress={this._loadImage}/>
+                    <BackBtn onBtnPress={this.goBack}/>
                 </View>
 
             </View>
         )
     }
 
-    goBack(event) {
+    goBack = (event) => {
         this.props.navigator.pop()
     }
 
-    addNote() {
+    addNote = () => {
         this.props.addNote({
             title: this.state.title,
             description: this.state.desc,
@@ -143,4 +142,8 @@ class NewNote extends Component {
     }
 }
 
-export default connect(null, {addNote})(NewNote)
+function mapStateToProps(state) {
+    return { api: state.api }
+}
+
+export default connect(mapStateToProps, {addNote, getSound})(NewNote)

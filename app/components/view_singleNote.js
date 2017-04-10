@@ -18,6 +18,8 @@ import {getColor} from '../lib/helpers'
 import {Typo} from '../lib/Typography'
 import {updateNote} from '../actions'
 import * as api from '../lib/api'
+import AddImageButton from '../lib/AddImageButton'
+let ImagePicker = require('react-native-image-picker');
 
 class SingleNote extends Component {
     constructor(props) {
@@ -50,6 +52,34 @@ class SingleNote extends Component {
         }
         return true
     }
+
+    _loadImage = () => {
+        let options = {
+            title: 'Select Option',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images'
+            }
+        };
+        ImagePicker.showImagePicker(options, (response) => {
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            }
+            else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            }
+            else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            }
+            else {
+                let source = {uri: response.uri};
+                this.setState({
+                    imageSource: source,
+                    changed: true,
+                });
+            }
+        });
+    };
 
     render() {
         return (
@@ -85,12 +115,13 @@ class SingleNote extends Component {
                         value={this.state.desc}
                     />
                     <View style={styles.imageContainer}>
-                        <Image style={styles.image} source={this.props.imageSource}/>
+                        <Image style={styles.image} source={this.state.imageSource}/>
                     </View>
                 </View>
 
                 <View style={styles.inputScreenBtnContainer}>
                     <TickBtn onBtnPress={this.updateNote.bind(this)}/>
+                    <AddImageButton onBtnPress={this._loadImage}/>
                     <Player url={api.getSoundUrl(this.state.desc)}/>
                     <BackBtn onBtnPress={this.goBack.bind(this)}/>
                 </View>
@@ -108,7 +139,8 @@ class SingleNote extends Component {
             this.props.updateNote({
                 id: this.state.id,
                 title: this.state.title,
-                description: this.state.desc
+                description: this.state.desc,
+                imageSource: this.state.imageSource,
             })
         }
 

@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
                 isLoading: true,
             }
         case SOUND_LOADED:
-            console.log("Result", action.result)
             return {
                 ...state,
                 isLoading: false,

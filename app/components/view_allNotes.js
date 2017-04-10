@@ -101,6 +101,7 @@ class AllNotes extends Component {
                 title={note.title}
                 description={note.description}
                 imageSource={note.imageSource}
+                date={note.date}
                 id={note.id}
                 keys={rowID}
                 onPressBtn={this.goToNote.bind(this)}

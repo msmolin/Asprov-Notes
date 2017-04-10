@@ -44,6 +44,7 @@ export default class Player extends Component {
                 if (evt.status === METADATA_UPDATED && evt.key === 'StreamTitle') {
                     this.setState({song: evt.value});
                 } else if (evt.status != METADATA_UPDATED) {
+                    console.log(evt.status)
                     if (evt.status !== this.state.status) {
                         this.setState(evt);
                     }
@@ -77,7 +78,6 @@ export default class Player extends Component {
 
     render() {
         let icon = null;
-        console.log('Status', this.state.status);
         switch (this.state.status) {
             case PLAYING:
             case STREAMING:

@@ -136,7 +136,8 @@ class NewNote extends Component {
         this.props.addNote({
             title: this.state.title,
             description: this.state.desc,
-            imageSource: this.state.imageSource
+            imageSource: this.state.imageSource,
+            date: new Date(),
         })
         this.goBack()
     }

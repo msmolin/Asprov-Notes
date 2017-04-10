@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 import com.audioStreaming.ReactNativeAudioStreamingPackage;
+import com.mihir.react.tts.RCTTextToSpeechModule;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.imagepicker.ImagePickerPackage;
@@ -32,8 +33,10 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactNativeAudioStreamingPackage(),
             new RNSoundPackage(),
             new VectorIconsPackage(),
-            new ImagePickerPackage()
+            new ImagePickerPackage(),
+            new RCTTextToSpeechModule()
       );
+
     }
   };
 

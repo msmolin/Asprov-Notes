@@ -1,3 +1,6 @@
+import {Dimensions} from 'react-native'
+
+const {windowHeight, windowWidth} = Dimensions.get('window');
 export const styles = {
     allNotesContainer: {
         flex: 1,
@@ -31,12 +34,14 @@ export const styles = {
         fontSize: 20
     },
     inputDescriptionStyle: {
-        height: 60,
+        flex:1,
+        height: windowHeight - 100,
         paddingLeft: 20,
         paddingRight: 20,
         fontFamily: 'Lato-Regular',
         fontSize: 16,
-        textAlignVertical: 'top'
+        textAlignVertical: 'top',
+        backgroundColor: '#f5f5f5'//['#f5f5f5', 'rgba(f, f, f, 0.7)']
     },
     inputScreenBtnContainer: {
         margin: 20,

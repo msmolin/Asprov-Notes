@@ -1,13 +1,9 @@
-/**
- * Created by denissamohvalov on 07.04.17.
- */
-
 const BASE_URL = 'https://tts.voicetech.yandex.net/generate?';
 const TOKEN = 'ae2aa574-11cd-4283-b212-a3c270e58b08';
 const format = 'mp3';
 const quality = 'hi';
-const lang = 'en-US';
-const speaker = 'jane';
+const lang = 'ru-RU';//'en-US';
+const speaker = 'oksana';//'jane';
 
 export function getSoundUrl(text) {
     let url =

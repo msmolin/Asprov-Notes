@@ -1,6 +1,3 @@
-//
-// Add New Note Button
-//
 import React, { Component } from 'react'
 import {
   View,

@@ -16,7 +16,7 @@ export default class AddImageButton extends Component {
 
             <View style={styles.container}>
                 <TouchableOpacity onPress={this.handlePress.bind(this)}>
-                    <Icon name="image" size={36} color={getColor('#ffffff')} />
+                    <Icon name="image" size={36} color={getColor('#ffffff')} alignItems="center" />
                 </TouchableOpacity>
             </View>
         )
@@ -29,7 +29,7 @@ export default class AddImageButton extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: getColor('red'),
-        borderRadius: 50
+        backgroundColor: '#ffb043',
+        borderRadius: 50,
     }
 })

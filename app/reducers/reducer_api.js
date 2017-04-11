@@ -1,6 +1,3 @@
-/**
- * Created by denissamohvalov on 07.04.17.
- */
 import {SOUND_IS_LOADING, SOUND_LOADED} from '../actions'
 
 const initialState = {

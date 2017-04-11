@@ -85,11 +85,11 @@ class SingleNote extends Component {
         return (
             <View style={ styles.addNotesContainer }>
                 <StatusBar
-                    backgroundColor={getColor('paperTeal700')}
+                    backgroundColor={getColor('#19a5ff')}
                     barStyle="light-content"
                     animated={true}
                 />
-                <Toolbar title="Edit Note" color={getColor('paperTeal')}/>
+                <Toolbar title="Edit Note" color={getColor('#15a0fe')}/>
 
                 <View style={styles.textInputContainer}>
                     <TextInput
@@ -106,7 +106,7 @@ class SingleNote extends Component {
                     <TextInput
                         style={styles.inputDescriptionStyle}
                         multiline={true}
-                        placeholder='Note Description...'
+                        placeholder='Note content...'
                         placeholderTextColor='#aaa'
                         returnKeyType='done'
                         underlineColorAndroid="transparent"

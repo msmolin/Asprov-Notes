@@ -6,7 +6,8 @@ import {
   TextInput,
   Alert,
   BackAndroid,
-  ListView
+  ListView,
+  Dimensions
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -50,7 +51,7 @@ class AllNotes extends Component {
           barStyle="light-content"
           animated={true}
         />
-        <Toolbar title="Asprov Notes" color={getColor('paperBlue')}/>
+        <Toolbar title="Notes" color={getColor('#5f58ff')}/>
         { this.renderList() }
 
         <AddNoteButton onBtnPress={this.addNewNote.bind(this)}/>

@@ -6,6 +6,10 @@ export const styles = {
         flex: 1,
         backgroundColor: '#ffffff'
     },
+    editNoteContainer:{
+        flex: 1,
+        backgroundColor: '#ffffff',
+    },
     emptyListContainer: {
         flex: 1,
         alignItems: 'center',
@@ -22,7 +26,7 @@ export const styles = {
         backgroundColor: '#ffffff'
     },
     textInputContainer: {
-        flex: 1
+        flex: 4
     },
     inputTitleStyle: {
         height: 60,
@@ -35,6 +39,7 @@ export const styles = {
     },
     inputDescriptionStyle: {
         flex:1,
+        flexDirection:'row',
         height: windowHeight - 100,
         paddingLeft: 20,
         paddingRight: 20,
@@ -56,8 +61,23 @@ export const styles = {
     imageContainer: {
         alignItems: 'center',
     },
+    imagesContainer:{
+        //flex: 1,
+        backgroundColor:'red'
+    },
+    editContainer:{
+        justifyContent:'space-between',
+    },
     image: {
         height: 200,
         width: 200,
+    },
+    textInputandImagesContainer:{
+        flex:1,
+        flexDirection:'row',
+    },
+    imagesRollContainer:{
+        flex: 1,
+        backgroundColor:'red'
     }
 };

@@ -5,6 +5,7 @@ import {
     TextInput,
     BackAndroid,
     StatusBar,
+    ScrollView,
     Image
 } from 'react-native'
 import {connect} from 'react-redux'
@@ -83,39 +84,44 @@ class SingleNote extends Component {
 
     render() {
         return (
-            <View style={ styles.addNotesContainer }>
+            <View style={ styles.editNoteContainer }>
                 <StatusBar
                     backgroundColor={getColor('#19a5ff')}
                     barStyle="light-content"
                     animated={true}
                 />
-                <Toolbar title="Edit Note" color={getColor('#15a0fe')}/>
+                <Toolbar title="Edit Note" color={getColor('#15a0fe')}>
+                </Toolbar>
+                <TextInput
+                    style={styles.inputTitleStyle}
+                    placeholder='Note Title...'
+                    placeholderTextColor='#aaa'
+                    returnKeyType='next'
+                    underlineColorAndroid="transparent"
+                    selectionColor={getColor('paperTeal')}
+                    onChangeText={(text) => this.setState({title: text, changed: true})}
+                    value={this.state.title}
+                />
 
-                <View style={styles.textInputContainer}>
-                    <TextInput
-                        style={styles.inputTitleStyle}
-                        placeholder='Note Title...'
-                        placeholderTextColor='#aaa'
-                        returnKeyType='next'
-                        underlineColorAndroid="transparent"
-                        selectionColor={getColor('paperTeal')}
-                        onChangeText={(text) => this.setState({title: text, changed: true})}
-                        value={this.state.title}
-                    />
+                <View style={styles.textInputandImagesContainer}>
+                    <View style={styles.textInputContainer}>
+                        <TextInput
+                            style={styles.inputDescriptionStyle}
+                            multiline={true}
+                            placeholder='Note content...'
+                            placeholderTextColor='#aaa'
+                            returnKeyType='done'
+                            underlineColorAndroid="transparent"
+                            selectionColor={getColor('paperTeal')}
+                            onChangeText={(text) => this.setState({desc: text, changed: true})}
+                            value={this.state.desc}
+                        />
+                        <View style={styles.imageContainer}>
+                            <Image style={styles.image} source={this.state.imageSource}/>
+                        </View>
+                    </View>
+                    <View style={styles.imagesRollContainer}>
 
-                    <TextInput
-                        style={styles.inputDescriptionStyle}
-                        multiline={true}
-                        placeholder='Note content...'
-                        placeholderTextColor='#aaa'
-                        returnKeyType='done'
-                        underlineColorAndroid="transparent"
-                        selectionColor={getColor('paperTeal')}
-                        onChangeText={(text) => this.setState({desc: text, changed: true})}
-                        value={this.state.desc}
-                    />
-                    <View style={styles.imageContainer}>
-                        <Image style={styles.image} source={this.state.imageSource}/>
                     </View>
                 </View>
 
@@ -125,7 +131,6 @@ class SingleNote extends Component {
                     <Player url={api.getSoundUrl(this.state.desc)}/>
                     <BackBtn onBtnPress={this.goBack.bind(this)}/>
                 </View>
-
             </View>
         )
     }
